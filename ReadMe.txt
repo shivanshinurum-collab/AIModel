@@ -156,3 +156,74 @@ Engine (Code) wahi rehta hai. Aap us engine mein jo Fuel (Data) daalenge, gadi (
 
 
 
+
+
+🤖✅🔥  Backend - Python - Django- Intigration Code - 
+
+
+
+import torch
+from django.http import StreamingHttpResponse
+from rest_framework.decorators import api_view
+
+# Humare project ki files import karenge
+from model.gpt_model import GPTModel
+from tokenizer.tokenizer_infer import LLMTokenizer
+from inference.generate import generate_streaming
+from utils.config_loader import get_default_config
+
+# ==========================================
+# 1. MODEL KO EK BAAR LOAD KARENGE (GLOBAL)
+# ==========================================
+# (Server start hote hi model load ho jayega, 
+# taki har user request par time waste na ho)
+
+device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
+checkpoint_path = "checkpoints/best.pt"
+
+# Tokenizer load karein
+tokenizer = LLMTokenizer("tokenizer/saved/tokenizer.json")
+
+# Model load karein
+checkpoint = torch.load(checkpoint_path, map_location="cpu")
+config = get_default_config("tiny") # Agar apka model tiny hai
+model = GPTModel(config)
+model.load_state_dict(checkpoint["model_state_dict"])
+model = model.to(device)
+model.eval() # Inference mode on
+
+
+# ==========================================
+# 2. AAPKI DJANGO API
+# ==========================================
+@api_view(["POST"])
+def llmChat(request):
+    q = request.data.get("message")
+    
+    # Text ko numbers mein convert karein
+    prompt_ids = tokenizer.encode(q, add_bos=True)
+    prompt_tensor = torch.tensor([prompt_ids], device=device)
+
+    def event_stream():
+        # Humara custom streaming function call karein
+        stream = generate_streaming(
+            model=model,
+            input_ids=prompt_tensor,
+            tokenizer=tokenizer,
+            max_new_tokens=200,    # Kitne words generate karne hain
+            temperature=0.8,       # Randomness
+        )
+        
+        # Ek-ek word jaise hi banega, wo Flutter UI ko bhej diya jayega
+        for chunk in stream:
+            yield chunk 
+
+    # Django ka streaming response return karein
+    return StreamingHttpResponse(event_stream(), content_type="text/plain; charset=utf-8")
+
+
+
+
+
+
+
