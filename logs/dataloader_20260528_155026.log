@@ -1,0 +1,31 @@
+2026-05-28 15:50:26 | dataloader      | INFO     | Tokenizing /private/var/folders/34/lr9kd_6d4fn_5fcf0xgttmcw0000gn/T/pytest-of-shubhamjain/pytest-0/test_dataset_creation0/train.txt ...
+2026-05-28 15:50:26 | dataloader      | INFO     | Found 20 documents to tokenize
+2026-05-28 15:50:27 | dataloader      | INFO     | Saved token cache: /private/var/folders/34/lr9kd_6d4fn_5fcf0xgttmcw0000gn/T/pytest-of-shubhamjain/pytest-0/test_dataset_creation0/train_tokens.npy (1,040 tokens)
+2026-05-28 15:50:28 | dataloader      | INFO     | Dataset (train): 1,040 tokens | 32 chunks | seq_len=32
+2026-05-28 15:50:28 | dataloader      | INFO     | Tokenizing /private/var/folders/34/lr9kd_6d4fn_5fcf0xgttmcw0000gn/T/pytest-of-shubhamjain/pytest-0/test_getitem_shapes0/train.txt ...
+2026-05-28 15:50:28 | dataloader      | INFO     | Found 20 documents to tokenize
+2026-05-28 15:50:28 | dataloader      | INFO     | Saved token cache: /private/var/folders/34/lr9kd_6d4fn_5fcf0xgttmcw0000gn/T/pytest-of-shubhamjain/pytest-0/test_getitem_shapes0/train_tokens.npy (1,040 tokens)
+2026-05-28 15:50:28 | dataloader      | INFO     | Dataset (train): 1,040 tokens | 32 chunks | seq_len=32
+2026-05-28 15:50:28 | dataloader      | INFO     | Tokenizing /private/var/folders/34/lr9kd_6d4fn_5fcf0xgttmcw0000gn/T/pytest-of-shubhamjain/pytest-0/test_next_token_prediction0/train.txt ...
+2026-05-28 15:50:28 | dataloader      | INFO     | Found 50 documents to tokenize
+2026-05-28 15:50:28 | dataloader      | INFO     | Saved token cache: /private/var/folders/34/lr9kd_6d4fn_5fcf0xgttmcw0000gn/T/pytest-of-shubhamjain/pytest-0/test_next_token_prediction0/train_tokens.npy (2,600 tokens)
+2026-05-28 15:50:28 | dataloader      | INFO     | Dataset (train): 2,600 tokens | 162 chunks | seq_len=16
+2026-05-28 15:50:28 | dataloader      | INFO     | Tokenizing /private/var/folders/34/lr9kd_6d4fn_5fcf0xgttmcw0000gn/T/pytest-of-shubhamjain/pytest-0/test_cache_created0/train.txt ...
+2026-05-28 15:50:28 | dataloader      | INFO     | Found 20 documents to tokenize
+2026-05-28 15:50:28 | dataloader      | INFO     | Saved token cache: /private/var/folders/34/lr9kd_6d4fn_5fcf0xgttmcw0000gn/T/pytest-of-shubhamjain/pytest-0/test_cache_created0/train_tokens.npy (1,040 tokens)
+2026-05-28 15:50:28 | dataloader      | INFO     | Dataset (train): 1,040 tokens | 64 chunks | seq_len=16
+2026-05-28 15:50:28 | dataloader      | INFO     | Tokenizing /private/var/folders/34/lr9kd_6d4fn_5fcf0xgttmcw0000gn/T/pytest-of-shubhamjain/pytest-0/test_cache_loads_faster0/train.txt ...
+2026-05-28 15:50:28 | dataloader      | INFO     | Found 20 documents to tokenize
+2026-05-28 15:50:28 | dataloader      | INFO     | Saved token cache: /private/var/folders/34/lr9kd_6d4fn_5fcf0xgttmcw0000gn/T/pytest-of-shubhamjain/pytest-0/test_cache_loads_faster0/train_tokens.npy (1,040 tokens)
+2026-05-28 15:50:28 | dataloader      | INFO     | Dataset (train): 1,040 tokens | 64 chunks | seq_len=16
+2026-05-28 15:50:29 | dataloader      | INFO     | Loading tokenized cache: /private/var/folders/34/lr9kd_6d4fn_5fcf0xgttmcw0000gn/T/pytest-of-shubhamjain/pytest-0/test_cache_loads_faster0/train_tokens.npy
+2026-05-28 15:50:29 | dataloader      | INFO     | Dataset (train): 1,040 tokens | 64 chunks | seq_len=16
+2026-05-28 15:50:29 | dataloader      | INFO     | Tokenizing /private/var/folders/34/lr9kd_6d4fn_5fcf0xgttmcw0000gn/T/pytest-of-shubhamjain/pytest-0/test_missing_file_raises0/nonexistent.txt ...
+2026-05-28 15:50:29 | dataloader      | INFO     | Tokenizing /private/var/folders/34/lr9kd_6d4fn_5fcf0xgttmcw0000gn/T/pytest-of-shubhamjain/pytest-0/test_batch_shapes0/train.txt ...
+2026-05-28 15:50:29 | dataloader      | INFO     | Found 50 documents to tokenize
+2026-05-28 15:50:29 | dataloader      | INFO     | Saved token cache: /private/var/folders/34/lr9kd_6d4fn_5fcf0xgttmcw0000gn/T/pytest-of-shubhamjain/pytest-0/test_batch_shapes0/train_tokens.npy (2,600 tokens)
+2026-05-28 15:50:29 | dataloader      | INFO     | Dataset (train): 2,600 tokens | 162 chunks | seq_len=16
+2026-05-28 15:50:29 | dataloader      | INFO     | Tokenizing /private/var/folders/34/lr9kd_6d4fn_5fcf0xgttmcw0000gn/T/pytest-of-shubhamjain/pytest-0/test_tensor_types0/train.txt ...
+2026-05-28 15:50:29 | dataloader      | INFO     | Found 50 documents to tokenize
+2026-05-28 15:50:29 | dataloader      | INFO     | Saved token cache: /private/var/folders/34/lr9kd_6d4fn_5fcf0xgttmcw0000gn/T/pytest-of-shubhamjain/pytest-0/test_tensor_types0/train_tokens.npy (2,600 tokens)
+2026-05-28 15:50:29 | dataloader      | INFO     | Dataset (train): 2,600 tokens | 162 chunks | seq_len=16

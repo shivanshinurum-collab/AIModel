@@ -1,0 +1,44 @@
+# ============================================================
+# TINY MODEL CONFIG — ~7M parameters
+# Best for: quick experiments, CPU training, prototyping
+# ============================================================
+
+model:
+  name: "tiny"
+  vocab_size: 8000          # BPE vocabulary size
+  max_seq_len: 256          # Maximum context window length
+  d_model: 256              # Embedding / hidden dimension
+  n_layers: 4               # Number of transformer blocks
+  n_heads: 4                # Number of attention heads
+  d_ff: 1024                # Feed-forward inner dimension (4x d_model)
+  dropout: 0.1              # Dropout probability
+  bias: true                # Use bias in linear layers
+
+training:
+  batch_size: 32
+  gradient_accumulation_steps: 4      # effective batch = 32 * 4 = 128
+  max_steps: 10000
+  eval_interval: 500
+  save_interval: 1000
+  learning_rate: 3.0e-4
+  min_lr: 3.0e-5                      # minimum LR at end of cosine decay
+  warmup_steps: 500
+  weight_decay: 0.1
+  grad_clip: 1.0
+  mixed_precision: true               # fp16/bf16 AMP
+  compile_model: false                # torch.compile (Python 3.11+)
+
+data:
+  dataset_path: "datasets/processed/train.txt"
+  val_path: "datasets/processed/val.txt"
+  tokenizer_path: "tokenizer/saved/tokenizer.json"
+  num_workers: 2
+
+logging:
+  log_dir: "logs"
+  tensorboard: true
+  log_interval: 10
+
+checkpoint:
+  checkpoint_dir: "checkpoints"
+  keep_last_n: 3                      # keep only last N checkpoints

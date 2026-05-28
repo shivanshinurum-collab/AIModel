@@ -1,0 +1,48 @@
+# ============================================================
+# GPT-Style LLM From Scratch — Requirements
+# ============================================================
+
+# Core deep learning
+torch>=2.1.0
+torchvision>=0.16.0
+
+# Tokenizer (trains BPE from scratch — no pretrained models used)
+tokenizers>=0.15.0
+
+# Dataset downloading & handling
+datasets>=2.14.0
+huggingface-hub>=0.19.0
+
+# API server
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+sse-starlette>=1.6.5
+pydantic>=2.4.0
+httpx>=0.25.0
+
+# Config system
+pyyaml>=6.0.1
+
+# Numerical / utilities
+numpy>=1.24.0
+tqdm>=4.66.0
+rich>=13.7.0          # beautiful terminal output
+
+# Logging & visualization
+tensorboard>=2.14.0
+matplotlib>=3.8.0
+
+# Export
+onnx>=1.15.0
+onnxruntime>=1.16.0
+
+# Testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+
+# Text cleaning
+ftfy>=6.1.1           # fixes unicode issues
+regex>=2023.10.3
+
+# Optional: profanity filtering
+better-profanity>=0.7.0

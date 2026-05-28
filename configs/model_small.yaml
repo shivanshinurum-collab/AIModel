@@ -1,0 +1,44 @@
+# ============================================================
+# SMALL MODEL CONFIG — ~25M parameters
+# Best for: local GPU training (4-8GB VRAM), small datasets
+# ============================================================
+
+model:
+  name: "small"
+  vocab_size: 16000
+  max_seq_len: 512
+  d_model: 384
+  n_layers: 6
+  n_heads: 6
+  d_ff: 1536
+  dropout: 0.1
+  bias: true
+
+training:
+  batch_size: 16
+  gradient_accumulation_steps: 8
+  max_steps: 50000
+  eval_interval: 1000
+  save_interval: 2000
+  learning_rate: 2.5e-4
+  min_lr: 2.5e-5
+  warmup_steps: 1000
+  weight_decay: 0.1
+  grad_clip: 1.0
+  mixed_precision: true
+  compile_model: false
+
+data:
+  dataset_path: "datasets/processed/train.txt"
+  val_path: "datasets/processed/val.txt"
+  tokenizer_path: "tokenizer/saved/tokenizer.json"
+  num_workers: 4
+
+logging:
+  log_dir: "logs"
+  tensorboard: true
+  log_interval: 20
+
+checkpoint:
+  checkpoint_dir: "checkpoints"
+  keep_last_n: 5
