@@ -1,0 +1,59 @@
+Viewed main.py:281-281
+
+Bilkul! Main aapko ye pura project ekdum aasan bhasha (Begginer level) mein samjhata hu. 
+
+Is project ka main goal hai apna khud ka ek chhota sa "ChatGPT" (AI Brain) bilkul zero (scratch) se banana. Is pure process ko hum ek bacche ko school bhejne se compare kar sakte hain.
+
+Aaiye dekhte hain ye kaise kaam karta hai, step-by-step:
+
+### 1. Kitabein Ikhatta Karna (Data Download)
+**Script:** `download_dataset.py`
+AI model ko kuch sikhane ke liye text (kahaniyan) chahiye hota hai. Jab aap `setup` command chalate hain, toh ye script internet (HuggingFace naam ki website) par jati hai aur **"TinyStories"** naam ka dataset automatically download karti hai. TinyStories mein chhote bacchon ki kahaniyan hoti hain (jaise "Ek billi thi..."). Ye AI ke padhne ke liye kitabon ka kaam karta hai.
+
+### 2. Kitabon ki Safai (Data Filtering & Cleaning)
+**Script:** `clean_dataset.py`
+Internet se aaya hua data kabhi-kabhi kharab hota hai (usme ajeeb characters `%$#@`, ya website ke HTML tags `<b>` hote hain). 
+Ye script ek filter ki tarah kaam karti hai:
+- Ye kachra (garbage characters) hatati hai.
+- Agar koi kahani 2 baar aa gayi hai (duplicate), toh use delete kar deti hai.
+- Fir saaf data ko ek nayi file mein save kar deti hai. Ab humari kitabein padhne ke liye bilkul ready hain!
+
+### 3. AI ko Padhna Sikhana (Tokenizer)
+**Script:** `tokenizer_train.py`
+Computer ko English ya Hindi samajh nahi aati; usko sirf **Numbers (0, 1, 2...)** samajh aate hain. 
+Tokenizer ek "Dictionary" banata hai. Ye pure data ko padhta hai aur words ko numbers mein badalta hai.
+Jaise:
+- "The" = 5
+- "Cat" = 12
+- "is" = 8
+Toh jab hum AI ko bolte hain "The Cat is", tokenizer usko `[5, 12, 8]` mein convert karke AI ko deta hai.
+
+### 4. AI ka Dimaag (Transformer Model)
+**Folder:** `model/` (jaise `gpt_model.py`)
+Ye AI ka main dimaag hai. Ise **"Transformer"** kehte hain. Iske andar ek special power hoti hai jise **"Attention"** kehte hain. 
+Attention ka matlab hai ki AI ko samajh aane lagta hai ki kis word ka kiske sath connection hai. 
+Jaise sentence hai: *"The bank of the river"*. Yaha Attention AI ko batata hai ki 'bank' ka matlab yaha Nadi ka kinara hai, HDFC/SBI wala bank nahi.
+
+### 5. Padhai (Training Loop)
+**Script:** `training/train.py` & `trainer.py`
+Ye sabse important part hai, jise **Training** kehte hain. Isme AI model ka "Exam" liya jata hai:
+1. Hum AI ko ek aadhi kahani dete hain, jaise: *"Once upon a..."*
+2. Hum AI se puchte hain ki batao **Next word** kya hoga?
+3. Shuru mein AI bilkul bewakoof hota hai aur kuch bhi guess karta hai, jaise *"Once upon a... Apple"*.
+4. Hum usko batate hain ki "Nahi! Sahi answer **Time** tha."
+5. AI apni galti se seekhta hai aur apne dimaag (weights) ko thoda change (update) karta hai.
+Ye process lakho baar chalti hai. Ahista-ahista AI ko samajh aa jata hai ki words ko kaise jodkar sahi sentence banate hain.
+
+### 6. Chatting (Inference/Generation)
+**Script:** `cli/chat.py`
+Jab training poori ho jati hai, toh AI tayar hai aapse baat karne ke liye. 
+Jab aap usko koi Message likhte hain, toh AI us message ko dekhta hai aur sirf apna **Next Word guess karta hai**. Fir us naye word ko sentence mein jodta hai, aur fir se next word guess karta hai. Ye tab tak chalta hai jab tak pura answer type nahi ho jata.
+
+**Summary mein:**
+1. Internet se text download kiya.
+2. Text ko saaf kiya.
+3. Words ko Numbers mein badla.
+4. AI ko bola ki aadhi line padh ke **Next word guess karo**.
+5. Galti karne par sudhara, jab tak wo expert nahi ban gaya!
+
+Kya isme se koi specific step (jaise Attention ya Tokenizer) aap aur detail mein samajhna chahte hain?
