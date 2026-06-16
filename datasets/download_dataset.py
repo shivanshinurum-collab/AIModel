@@ -37,6 +37,9 @@ log = get_logger("downloader")
 # ============================================================
 # DATASET REGISTRY
 # ============================================================
+
+# WE NEED TO ADD HERE DATASETS - TRAININNG DATA
+
 AVAILABLE_DATASETS = {
     "tinystories": {
         "hf_name": "roneneldan/TinyStories",
